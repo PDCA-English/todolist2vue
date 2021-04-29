@@ -4,7 +4,7 @@
     <div class="new">
       <h2>新規作成</h2>
       <div class="name">
-        <label for="name">お名前：</label>
+        <label for="name">おs名前：</label>
         <input type="text" name="name" id="name" v-model="newName" />
       </div>
       <div class="email">
