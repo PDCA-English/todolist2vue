@@ -4,7 +4,7 @@
     <div class="new">
       <h2>新規作成</h2>
       <div class="name">
-        <label for="name">おs名前：</label>
+        <label for="name">お名前：</label>
         <input type="text" name="name" id="name" v-model="newName" />
       </div>
       <div class="email">
@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     async getContact() {
-      const resData = await axios.get("http://127.0.0.1:8000/api/contact/");
+      const resData = await axios.get("https://vast-fjord-02624.herokuapp.com/api/contact/");
       this.contactLists = resData.data.data;
     },
     async insertContact() {
@@ -61,7 +61,7 @@ export default {
         name: this.newName,
         email: this.newEmail,
       };
-      await axios.post("http://127.0.0.1:8000/api/contact/", sendData);
+      await axios.post("https://vast-fjord-02624.herokuapp.com/api/contact/", sendData);
       await this.getContact();
     },
     async updateContact(id, name, email) {
@@ -69,11 +69,11 @@ export default {
         name: name,
         email: email,
       };
-      await axios.put("http://127.0.0.1:8000/api/contact/" + id, sendData);
+      await axios.put("https://vast-fjord-02624.herokuapp.com/api/contact/" + id, sendData);
       await this.getContact();
     },
     async deleteContact(id) {
-      await axios.delete("http://127.0.0.1:8000/api/contact/" + id);
+      await axios.delete("https://vast-fjord-02624.herokuapp.com/api/contact/" + id);
       await this.getContact();
     },
   },
